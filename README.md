@@ -22,7 +22,6 @@ Detailed revenue breakdown by pizza category and name, plus a stacked view of re
 
 ## Tools Used
 - Power BI Desktop for data modeling, DAX measures, and visualization
-- (Add your data source here, e.g. CSV/Excel sales data)
 
 ## Insights
 - Business days generate ~68.6% of total orders vs. 31.4% on weekends.
