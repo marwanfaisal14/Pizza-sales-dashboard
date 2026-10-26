@@ -1,30 +1,67 @@
-# Pizza Sales Dashboard (Power BI)
+# Pizza Sales Performance Dashboard
 
-An interactive Power BI dashboard analyzing pizza sales performance across orders, revenue, and product categories.
+**Power BI · DAX · Power Query · Sales Analysis**
 
-## Key Metrics
-- **Total Orders:** 21.35K
-- **Total Pizzas Sold:** 50K
-- **Total Revenue:** $817.86K
-- **Average Order Value:** $38.31
-- **Average Pizzas per Order:** 2.32
+A three-page Power BI report for exploring order demand, product mix, and revenue. The portfolio case focuses on how an analyst can translate a sales dashboard into staffing, assortment, and promotion questions.
 
-## Dashboard Pages
+![Pizza sales overview with order, revenue, category, and size KPIs](main%20dashboard.png)
 
-### 1. Pizza Dashboard
-Overview of daily order trends, order volume by hour, and revenue/units sold broken down by pizza category (Classic, Supreme, Chicken, Veggie) and size (S, M, L, XL, XXL).
+## Business questions
 
-### 2. Order Dashboard
-Highlights the Top 5 best- and worst-selling pizzas, order volume by weekday, order distribution by day type (Business Day vs. Weekend), and monthly order trends.
+- When is order demand highest, and how could that inform staffing?
+- Which pizza categories and sizes contribute the most revenue and units?
+- Which products merit a closer look before a promotion or menu change?
 
-### 3. Revenue Dashboard
-Detailed revenue breakdown by pizza category and name, plus a stacked view of revenue by month and weekday.
+## Dashboard KPIs
 
-## Tools Used
-- Power BI Desktop for data modeling, DAX measures, and visualization
+These values are displayed in the saved overview screenshot and are rounded by the report.
 
-## Insights
-- Business days generate ~68.6% of total orders vs. 31.4% on weekends.
-- Peak ordering hours are around midday and early evening.
-- Revenue is fairly evenly split across the four pizza categories (~24–27% each).
-- Larger sizes (L) drive the highest share of both revenue and units sold.
+| Metric | Displayed value |
+| --- | ---: |
+| Revenue | 817.86K |
+| Orders | 21.35K |
+| Pizzas sold | 50K |
+| Average order value | 38.31 |
+| Average pizzas per order | 2.32 |
+
+Exact underlying totals, currency, source coverage, and measure expressions have not been independently reproduced from raw data. Rounded cards should not be used to reverse-engineer exact totals.
+
+## Findings and decisions to explore
+
+| Observation in the saved report | Decision it could inform | Further check |
+| --- | --- | --- |
+| Business days account for 68.64% of orders; weekends account for 31.36% | Evaluate weekday and weekend coverage | Compare orders per day and per staffed hour because the groups contain different numbers of days |
+| Order demand has visible lunchtime and evening peaks | Review staffing and prep schedules around busy periods | Check hourly patterns by weekday and actual operating hours |
+| Classic has the largest category revenue, while categories are relatively close in contribution | Compare assortment and promotions across categories | Add contribution margins and ingredient costs before prioritizing sales |
+| Large pizzas lead both revenue and unit volume | Review size mix and inventory requirements | Check profit per pizza and ingredient usage rather than revenue alone |
+
+Recommendations are proposals to investigate; this repository does not claim measured business improvements.
+
+## Explore the three pages
+
+| Page | What it shows | Preview |
+| --- | --- | --- |
+| Overview | KPI cards, demand by hour, category and size mix | [Main dashboard](main%20dashboard.png) |
+| Orders | Best/worst-selling pizza selections, weekday units, day-type orders, monthly orders | [Order dashboard](order%20dashboard.png) |
+| Revenue | Revenue by category/product and month/weekday | [Revenue dashboard](Rev%20dashboard.png) |
+
+The saved monthly charts are sorted by metric, rather than calendar order. They support month comparisons, but the connecting line on the Orders page should not be interpreted as a chronological trend. See [review notes](docs/report-review.md) for the proposed presentation changes.
+
+## Open the report
+
+1. Download or clone this repository.
+2. Open [Modeling.pbix](Modeling.pbix) in a current Windows installation of Power BI Desktop.
+3. Inspect the existing model, relationships, and DAX before refreshing.
+4. If refresh asks for a local source, provide the original dataset and update its connection in Power Query.
+
+The separate raw source files and a refresh configuration are not included. The screenshots provide a browser-readable review path; this repository does not include a hosted interactive Power BI link.
+
+## What this project demonstrates
+
+Multi-page report navigation, KPI presentation, demand segmentation, product-mix exploration, and the distinction between a descriptive finding and a business recommendation. See [the case study](docs/case-study.md) for the reasoning and [metric definitions and review notes](docs/report-review.md) for validation limits.
+
+The PBIX archive passes CRC checks, contains an embedded data model, and has three populated report pages. Those file checks do not prove DAX correctness, source-refresh success, or interactive behavior. The original PBIX and dashboard images are preserved.
+
+## Related projects
+
+[Retail SQL & Profitability Analysis](https://github.com/marwanfaisal14/retail-sales-analysis) · [Healthcare Billing Dashboard](https://github.com/marwanfaisal14/-Healthcare-Billing-Cost-Analysis-Dashboard-Power-BI-)
